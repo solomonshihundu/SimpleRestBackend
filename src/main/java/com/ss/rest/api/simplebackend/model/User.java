@@ -44,6 +44,14 @@ public class User {
                                   ,inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+    public User(@Size(min = 2, max = 20, message = "username should be between 2 to 20 characters") String username, String firstName, String lastName, @Email(message = "Email should be valid") String email, @Size(min = 5, max = 20, message = "password should be at least 5 characters") String password) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
+
     public Long getId() {
         return Id;
     }
