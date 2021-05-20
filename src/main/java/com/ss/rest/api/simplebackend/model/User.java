@@ -36,7 +36,7 @@ public class User {
     private String email;
 
     @Column(name = "password",nullable = false)
-    @Size(min = 5,max = 20,message = "password should be at least 5 characters")
+//    @Size(min = 6,max = 40,message = "password should be at least 5 characters")
     private String password;
 
     @ManyToMany (fetch = FetchType.LAZY)

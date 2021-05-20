@@ -15,21 +15,5 @@ public class SimpleBackendApplication
 		SpringApplication.run(SimpleBackendApplication.class, args);
 	}
 
-	@Bean
-	public BCryptPasswordEncoder passwordEncoder()
-	{
-		return new BCryptPasswordEncoder(12);
-	}
-
 }
 
-
-@RestController
-class HelloController
-{
-	@GetMapping("/hello")
-	String hello()
-	{
-		return "hello";
-	}
-}

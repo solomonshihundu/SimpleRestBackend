@@ -11,6 +11,8 @@ import com.ss.rest.api.simplebackend.repository.RoleRepository;
 import com.ss.rest.api.simplebackend.repository.UserRepository;
 import com.ss.rest.api.simplebackend.security.JwtUtils;
 import com.ss.rest.api.simplebackend.service.UserDetailsImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -46,6 +48,8 @@ public class AuthController {
 
     @Autowired
     JwtUtils jwtUtils;
+
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -89,6 +93,13 @@ public class AuthController {
                 ,signUpRequest.getLastName()
                 ,signUpRequest.getEmail()
                 ,passwordEncoder.encode(signUpRequest.getPassword()));
+
+        logger.debug("AUTH_CONTROLLER",signUpRequest.getFirstName());
+        logger.debug("AUTH_CONTROLLER",signUpRequest.getLastName());
+        logger.debug("AUTH_CONTROLLER",passwordEncoder.encode(signUpRequest.getPassword()));
+
+        System.out.println("USER "+signUpRequest.getUsername());
+        System.out.println("ECODED PASSWORD IS "+passwordEncoder.encode(signUpRequest.getPassword()));
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();

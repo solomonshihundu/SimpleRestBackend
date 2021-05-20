@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class AuthTokenFilter extends OncePerRequestFilter {
+public class    AuthTokenFilter extends OncePerRequestFilter {
 
     @Autowired
     private JwtUtils jwtUtils;
