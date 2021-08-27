@@ -11,6 +11,7 @@ import com.ss.rest.api.simplebackend.repository.RoleRepository;
 import com.ss.rest.api.simplebackend.repository.UserRepository;
 import com.ss.rest.api.simplebackend.security.JwtUtils;
 import com.ss.rest.api.simplebackend.service.UserDetailsImpl;
+import com.ss.rest.api.simplebackend.util.AppUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*",maxAge = 3600)
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping(AppUtils.BASE_URL+"/auth")
 public class AuthController {
 
     @Autowired
